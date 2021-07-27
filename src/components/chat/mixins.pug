@@ -1,0 +1,23 @@
+mixin user(name="anonymous", photo="", message="")
+  .user
+    .user-avatar(class=photo.length ? "" : "plus-sign")
+      if photo.length
+        img.user-img(src=photo)
+
+    .user__info
+      .user-name #{name}
+      .user__message #{message}
+
+
+mixin comment(user, revert=false)
+  .comment(class=reverse ? "reverse" : "")
+    .user-avatar
+      if user.photo.length
+        img.user-img(src=user.photo)
+    .comment__wrapper
+      .user-name #{user.name}
+      .comment__list
+        each comment in user.comments
+          .message 
+            .message__text #{comment.message}
+            .message__date #{comment.date}

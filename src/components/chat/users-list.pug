@@ -1,0 +1,7 @@
+include ./mixins.pug
+
+.current-user
+  +user(currentUser.name, currentUser.photo, currentUser.message)
+.all-users
+  each user in guestUsers
+    +user(user.name, user.photo, user.message)
