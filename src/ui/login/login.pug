@@ -6,5 +6,7 @@
       .login__title Авторизация
       .login__subtitle Введите пожалуйста свой ник для дальнейшей авторизации
       form.login__form
-        input.login__input(placeholder="Введите свой ник")
-        button.login__button Войти
+        .login__input-wrapper
+          input.login__input(placeholder="Введите свой ник" data-role="login-input")
+          .login__error(data-role="login-error")
+        button.login__button(data-role="login-submit") Войти

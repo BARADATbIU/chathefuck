@@ -1,0 +1,10 @@
+.modal(data-role="avatar-modal")
+  .modal__title Загрузка фото
+  .modal__loader
+    .modal__preview(data-role="avatar-preview")
+    label.modal__label 
+      input.modal__input(type="file" data-role="avatar-input")
+      .modal__load-btn.chat-btn Выбрать фото
+  button.modal__save-btn.hidden.chat-btn(data-role="avatar-save") Сохранить
+  button.modal__close-btn(data-role="avatar-close") &#215;
+

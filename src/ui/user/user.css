@@ -1,0 +1,33 @@
+.user {
+  display: flex;
+  margin: 14px 0;
+}
+
+.user-avatar {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+  background-color: var(--blueColor);
+}
+
+.user-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.user__info {
+  margin-top: 6px;
+}
+
+.user-name {
+  color: var(--blueColor);
+  margin-bottom: 8px;
+}
+
+.user__message {
+  font-weight: 300;
+}

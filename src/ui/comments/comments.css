@@ -1,0 +1,63 @@
+.comment {
+  --bgColor: var(--darkBlueColor);
+
+  display: flex;
+  padding: 10px;
+}
+
+.comment__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.message {
+  display: flex;
+  align-items: flex-end;
+  font-weight: 300;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: var(--bgColor);
+  margin-bottom: 6px;
+}
+
+.message::last-child {
+  margin-bottom: 0;
+}
+
+.message__text {
+  color: #fff;
+  flex: 1;
+  font-size: 0.8em;
+}
+
+.message__date {
+  flex-shrink: 0;
+  margin-left: 10px;
+  color: #e0e0e0;
+  font-size: 0.7em;
+}
+
+.message__status {
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.comment.reverse {
+  --bgColor: var(--blueColor);
+
+  flex-direction: row-reverse;
+}
+
+.comment.reverse .user-avatar {
+  margin-left: 15px;
+  margin-right: 0;
+}
+
+.comment.reverse .user-name {
+  text-align: right;
+}
+
+.comment.reverse .comment__list {
+  align-items: flex-end;
+}

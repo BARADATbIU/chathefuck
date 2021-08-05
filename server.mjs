@@ -13,24 +13,26 @@ wss.on("connection", (ws) => {
   const activeUser = users.get(ws);
 
   ws.on("message", (body) => {
-    const { type, user = {}, comment = "", imageData = {} } = JSON.parse(body);
+    const { type, data } = JSON.parse(body);
+    const { user = {}, comment = {}, imageData = {} } = data;
 
     switch (type) {
       case "open":
+        if ([...users.values()].some((u) => u.name === user.name)) {
+          ws.send(JSON.stringify({ type: "deny", data: { activeUser: user } }));
+          return;
+        }
+
         users.set(ws, Object.assign(activeUser, user));
-        updateLastActiveUser();
 
         break;
 
       case "message":
-        activeUser.isLastActive
-          ? activeUser.comments.push(comment)
-          : (activeUser.comments = [comment]);
-        updateLastActiveUser();
+        activeUser.comment = comment;
 
         break;
 
-      case "avatar":
+      case "photo":
         fs.existsSync("dist/uploads") || fs.mkdirSync("dist/uploads");
 
         fs.writeFile(
@@ -51,11 +53,12 @@ wss.on("connection", (ws) => {
     sendToClients(type);
   });
 
-  ws.on("close", () => {
+  ws.on("close", (e) => {
     users.delete(ws);
 
+    if (e === 3000) return;
+
     sendToClients("close");
-    updateLastActiveUser();
   });
 
   function sendToClients(type) {
@@ -64,15 +67,14 @@ wss.on("connection", (ws) => {
         client.send(
           JSON.stringify({
             type,
-            users: [...users.values()],
-            activeUser,
+            data: {
+              users: [...users.values()],
+              activeUser,
+              isCurrent: client === ws,
+            },
           })
         );
       }
     });
-  }
-
-  function updateLastActiveUser() {
-    users.forEach((user) => (user.isLastActive = user === activeUser));
   }
 });

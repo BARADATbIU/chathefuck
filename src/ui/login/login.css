@@ -52,6 +52,12 @@
   align-items: center;
 }
 
+.login__input-wrapper {
+  width: 100%;
+  position: relative;
+  margin-bottom: 35px;
+}
+
 .login__input {
   color: #fff;
   background-color: transparent;
@@ -61,12 +67,18 @@
   border-radius: 4px;
   padding: 6px 10px;
   box-sizing: border-box;
-  margin-bottom: 30px;
 }
 
 .login__input:focus {
   outline: none;
   border-color: var(--blueColor);
+}
+
+.login__error {
+  position: absolute;
+  top: calc(100% + 5px);
+  font-size: 0.7em;
+  color: red;
 }
 
 .login__button {

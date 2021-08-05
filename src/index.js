@@ -1,9 +1,5 @@
 import "./styles/style.css";
 
-import initLoginForm from "components/login";
+import Chat from "./chat";
 
-initLoginForm();
-
-export function renderView(view, locals = {}) {
-  document.querySelector("#app").innerHTML = view(locals);
-}
+new Chat();

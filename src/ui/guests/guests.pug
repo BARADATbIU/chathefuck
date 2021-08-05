@@ -1,0 +1,4 @@
+include ../mixins.pug
+
+each user in guests
+  +user(user.name, user.photo, user.message)

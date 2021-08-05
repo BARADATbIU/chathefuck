@@ -1,0 +1,15 @@
+.chat
+  aside.chat__aside  
+    .current-user(data-role="current-user")
+    .all-users(data-role="guests")
+
+  main.chat__main
+    .chat__header
+      .chat__title Чат
+      .chat__members
+        span Online 
+        span(data-role="members") 1
+    .chat__comments(data-role="comments")
+    form.chat__form
+      input.chat__input(placeholder="Введите сообщение" data-role="comment-input")
+      button.chat__button.chat-btn(data-role="comment-submit") Отправить

@@ -1,0 +1,12 @@
+mixin user(name="", photo="", message="")
+  .user(data-user-key=name)
+    .user-avatar.plus-sign(data-role="user-avatar")
+      img.user-img(src=photo)
+    .user__info
+      .user-name(data-role="user-name") #{name}
+      .user__message(data-role="user-last-message") #{message}
+
+mixin message(message, date)
+  .message 
+    .message__text #{message}
+    .message__date #{date}

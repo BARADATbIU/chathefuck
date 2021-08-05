@@ -1,0 +1,9 @@
+include ../mixins.pug
+
+.comment(class=reverse ? "reverse" : "" data-user-key=user.name)
+  .user-avatar(data-role="user-avatar")
+    img.user-img(src=user.photo)
+  .comment__wrapper
+    .user-name #{user.name}
+    .comment__list(data-role="messages")
+      +message(user.comment.message, user.comment.date)

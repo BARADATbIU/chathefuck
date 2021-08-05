@@ -1,0 +1,67 @@
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 9999px;
+  transform: translate(-50%, -50%);
+  background-color: #1b2733;
+  padding: 30px;
+}
+
+.modal.open {
+  left: 50%;
+}
+
+.modal__title {
+  font-size: 1.3em;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modal__loader {
+  display: flex;
+  align-items: center;
+}
+
+.modal__preview {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--blueColor);
+  margin-right: 30px;
+}
+
+.modal__input {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  left: 0;
+}
+
+.modal__save-btn {
+  font-size: 0.8em;
+  margin-top: 25px;
+}
+
+.modal__save-btn.hidden {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.modal__close-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 40px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: #000;
+}
